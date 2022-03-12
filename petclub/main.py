@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_PORT'] = 3306
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = '1234'
+app.config['MYSQL_DATABASE_USER'] = 'root' #depende del usuario que asignaron en heidiSQL
+app.config['MYSQL_DATABASE_PASSWORD'] = '1234' #depende de la contraseña que asignaron en heidiSQL
 app.config['MYSQL_DATABASE_DB'] = 'petclub'
 
 mysql = MySQL()
