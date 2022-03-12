@@ -1,0 +1,22 @@
+CREATE TABLE `cliente` (
+	`nombre` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`especie` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`edad` INT(11) NOT NULL,
+	`nombre_owner` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`cedula` BIGINT(20) NOT NULL,
+	`correo` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`password` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	PRIMARY KEY (`cedula`) USING BTREE
+)
+
+CREATE TABLE `cita` (
+	`fecha` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`hora` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`fk_cliente` BIGINT(20) NOT NULL,
+	INDEX `FK_cliente` (`fk_cliente`) USING BTREE,
+	CONSTRAINT `FK_cliente` FOREIGN KEY (`fk_cliente`) REFERENCES `petclub`.`cliente` (`cedula`) ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+insert into cliente values (Naty,Gato,4,Luis,1234,luis@correo.com,1234)
+
+insert into cita values (10/08/2022,10:30,1234)
