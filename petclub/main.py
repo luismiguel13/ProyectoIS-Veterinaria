@@ -21,6 +21,10 @@ def inicio():
 def login():
 	return render_template('login.html')
 
+@app.route('/info')
+def info():
+	return render_template('info.html')
+
 @app.route('/register')
 def register():
 	return render_template('register.html')
@@ -32,12 +36,16 @@ def dataclient():
 	datos = cursor.fetchall()
 	return render_template('dataclient.html', datos = datos)
 
-@app.route('/cita')
-def cita():
+@app.route('/hitorialcita')
+def historialcita():
 	cursor = mysql.get_db().cursor()
 	cursor.execute("SELECT fecha, hora, fk_cliente FROM cita")
 	datos = cursor.fetchall()
-	return render_template('cita.html', datos = datos)
+	return render_template('histcita.html', datos = datos)	
+
+@app.route('/cita')
+def cita():
+	return render_template('cita.html')
 
 @app.route('/nuevoregistro')
 def nuevoregistro():
@@ -66,9 +74,9 @@ def confirmarcita():
 		varHora = request.form['hora']
 		varcedula= request.form['fk_cliente']
 		cursor = mysql.get_db().cursor()
-		cursor.execute("insert into cliente cita (%s,%s,%s)",(varfecha, varHora, varcedula))
+		cursor.execute("insert into cita values (%s,%s,%s)",(varfecha, varHora, varcedula))
 		mysql.get_db().commit()
-		return redirect(url_for('dataclient'))
+		return redirect(url_for('historialcita'))
 
 if __name__ == '__main__':
 	app.run(port=3000, debug=True)

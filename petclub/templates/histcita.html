@@ -24,7 +24,7 @@
                 <a class="nav-link" aria-current="page" href="/">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Info</a>
+                <a class="nav-link" href="/info">Info</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/register">Registro</a>
@@ -37,6 +37,37 @@
         </div>
     </nav>
 
+    </br>
+    </br>
+    <div class="col-6" style="display:block; margin-left: auto; margin-right: auto;">
+      <caption style="color: silver;">Historial Cita</caption>
+      <table class="table" style="text-align: center; font-size: small;">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Cedula</th>
+          </tr>
+        </thead>
+        <tbody class="table-light table-striped">
+      
+          {% for det in datos %}
+      
+          <tr class="">
+            <td>{{ det.0 }}</td>
+            <td>{{ det.1 }}</td>
+            <td>{{ det.2 }}</td>
+          </tr>
+      
+          {% endfor %}
+      
+        </tbody>
+      </table>
+      <form action="/cita">
+        <button action="/" class="btn btn-primary">Solicitar Cita</button>
+        <a class="btn btn-primary" href="/client" role="button">Volver</a>
+      </form> 
+    </div>
 
     
     
