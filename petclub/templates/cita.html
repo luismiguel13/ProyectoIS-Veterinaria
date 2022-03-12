@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Pet Club</a>
@@ -30,70 +29,42 @@
                 <a class="nav-link" href="/register">Registro</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/login">Iniciar sesión</a>
+                <a class="nav-link active" href="/login">Iniciar sesión</a>
               </li>
             </ul>
           </div>
         </div>
-    </nav>
+      </nav>
+      <div class="card mb-3">
+        <div class="col-4" style="display:block; margin-left: auto; margin-right: auto;">
+            <br>
+            <br>
 
-    </br>
-    </br>
-    <div class="col-6" style="display:block; margin-left: auto; margin-right: auto;">
-      <caption style="color: silver;">Datos Mascota</caption>
-      <table class="table" style="text-align: center; font-size: small;">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Especie</th>
-            <th scope="col">Edad</th>
-          </tr>
-        </thead>
-        <tbody class="table-light table-striped">
-      
-          {% for det in datos %}
-      
-          <tr class="">
-            <td>{{ det.0 }}</td>
-            <td>{{ det.1 }}</td>
-            <td>{{ det.2 }}</td>
-          </tr>
-      
-          {% endfor %}
-      
-        </tbody>
-      </table>
-      </br>
-      <caption style="color: silver;">Datos Dueño</caption>
-      <table class="table" style="text-align: center; font-size: small;">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Cedula</th>
-            <th scope="col">Correo</th>
-          </tr>
-        </thead>
-        <tbody class="table-light table-striped">
-      
-          {% for det in datos %}
-      
-          <tr class="">
-            <td>{{ det.3 }}</td>
-            <td>{{ det.4 }}</td>
-            <td>{{ det.5 }}</td>
-          </tr>
-      
-          {% endfor %}
-      
-        </tbody>
-      </table>
-      <form action="/cita">
-        <button action="/" class="btn btn-primary">Solicitar Cita</button>
-      </form> 
+            <form action="/confirmarcita" method="POST">
+              <label for="formGroup" class="form-label">Datos cita</label>
+              <div class="form-group">
+                  <label for="fecha">Fecha</label>
+                  <input name="fecha" type="text" class="form-control" id="fecha" placeholder="dd/mm/aa">
+              </div>
+              <div class="form-group">
+                <label for="especie">Hora</label>
+                <input name="especie" type="text" class="form-control" id="especie" placeholder="Digite la hora">
+             </div>
+              <div class="form-group">
+                  <label for="cedula">Cedula</label>
+                  <input name="cedula" type="text" class="form-control" id="cedula" placeholder="Digite la cedula">
+              </div>
+              <button type="submit" class="btn btn-primary">Insertar</button>
+              <a class="btn btn-primary" href="/" role="button">Cancelar</a>
+            </form>
+
+            <br>
+            <br>
+        </div>
+
     </div>
 
-    
-    
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
